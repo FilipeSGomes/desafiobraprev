@@ -1,5 +1,7 @@
 package com.desafio.brasilprev.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,16 +16,23 @@ import com.desafio.brasilprev.domain.Client;
 @RequestMapping("/rest/client")
 public class ClientController {
 
-	@PostMapping("/CadastroCliente")
-	public Client hellotadd(@RequestBody final Client cliente) {
+	@PostMapping("/register")
+	public Client registerClient(@RequestBody final Client cliente) {
 		return cliente;
 	}
 	
-	@PutMapping("/put")
-	public String helloput(@RequestBody final String hello) {
-		return hello;
+	@PutMapping("/change")
+	public Client changeClient(@RequestBody final String hello) {
+		return null;
 	}
-	@DeleteMapping("/Delete")
-	public void helloDel(@RequestBody final String hello) {
+	@DeleteMapping("/delete")
+	public void deleteClient(@RequestBody final String hello) {
 	}
+	
+	@GetMapping
+	public List<Client> loadClient(){
+		
+		return null;
+	}
+	
 }

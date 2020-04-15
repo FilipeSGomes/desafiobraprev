@@ -19,9 +19,10 @@ public class SwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.any())
-				//.paths(RegexPatternTypeFilter("/rest/*"))
-				.build();
+				.build()
+				.apiInfo(metaInfo());
 	}
+	
 	private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
