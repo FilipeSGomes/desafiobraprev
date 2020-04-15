@@ -26,11 +26,11 @@ public class SwaggerConfig {
 	private ApiInfo metaInfo() {
 
         ApiInfo apiInfo = new ApiInfo(
-                "Spring Boot Swagger Desafio Brasil Prev",
-                "Spring Boot Swagger Desafio Brasil tes",
+                "Desafio B.P.",
+                "Desafio tecnico de desenvolvimento API REST para simular loja virtual",
                 "1.0",
                 "Terms of Service",
-                new Contact("Filipe Gomes", "https://github.com/FilipeSGomes/desafio_brasilPrev",
+                new Contact("Filipe Gomes", "https://github.com/FilipeSGomes/desafiobraprev",
                         "filipesan7@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licesen.html"

@@ -14,15 +14,13 @@ import com.desafio.brasilprev.repository.ClientRepository;
 public class ImplementsUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private ClientRepository usuarioRepository;
+	private ClientRepository repository;
 	
 	@Override
-	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		Client user = usuarioRepository.findByFirstName(name);
-		System.out.println(user.getPassword());
-		System.out.println(user.getUsername());
+	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+		Client user = repository.findByLogin(login);
 	    if (user == null) {
-	      throw new UsernameNotFoundException("Usuário não encontrado!");
+	      throw new UsernameNotFoundException("User not found!");
 	    }
 		return user;
 	}

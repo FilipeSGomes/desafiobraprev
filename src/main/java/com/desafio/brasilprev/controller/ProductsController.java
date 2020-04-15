@@ -16,8 +16,8 @@ import com.desafio.brasilprev.domain.Client;
 import com.desafio.brasilprev.services.ClientServices;
 
 @RestController
-@RequestMapping("/rest/client")
-public class ClientController {
+@RequestMapping("/rest/products")
+public class ProductsController {
 
 	@Autowired
 	private ClientServices services;

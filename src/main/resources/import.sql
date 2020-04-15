@@ -1,0 +1,1 @@
+INSERT INTO Client (firstName, lastName, mail, login, password) values('Filipe', 'Gomes', 'filipesan7@gmail.com', 'Filipe_Gomes', '1234');
