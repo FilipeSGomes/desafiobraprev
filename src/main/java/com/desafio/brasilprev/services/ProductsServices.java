@@ -1,20 +1,16 @@
 package com.desafio.brasilprev.services;
 
-import java.util.List;
-
-import com.desafio.brasilprev.domain.Client;
+import com.desafio.brasilprev.domain.Products;
 
 public interface ProductsServices {
 
-	public Client changeClient(Client client);
+	public Products changeProducts(Products Products);
 	
-	public Client registerClient(Client client);
+	public Products registerProducts(Products Products);
 	
-	public void deleteClient(String login);
+	public void deleteProducts(String login);
 	
-	public Iterable<Client> loadAllClient();
+	public Iterable<Products> loadAllProducts();
 	
-	public List<Client> loadClient(String firstName);
 	
-	public Client loadClientByLogin(String login);
 }

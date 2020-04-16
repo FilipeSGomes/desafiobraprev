@@ -18,9 +18,9 @@ public class ClientServicesImpl implements ClientServices {
 
 	@Override
 	public Client changeClient(Client client) {
-		if (client == null || client.getUsername().isEmpty())
+		if (client == null || client.getLogin().isEmpty())
 			return null;
-		Client changeClient = repository.findByLogin(client.getUsername());
+		Client changeClient = repository.findByLogin(client.getLogin());
 		if (changeClient == null)
 			return null;
 		return repository.save(client);
@@ -30,7 +30,7 @@ public class ClientServicesImpl implements ClientServices {
 	public Client registerClient(Client client) {
 		if (client == null)
 			return null;
-		Client registerClient = repository.findByLogin(client.getUsername());
+		Client registerClient = repository.findByLogin(client.getLogin());
 		if (registerClient != null)
 			return null;
 		return repository.save(client);

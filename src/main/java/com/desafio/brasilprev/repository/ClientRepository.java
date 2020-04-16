@@ -12,4 +12,7 @@ public interface ClientRepository extends CrudRepository<Client, Long> {
 
 	public List<Client> findByFirstName(String name);
 	public Client findByLogin(String login);
+	public Client findByMail(String mail);
+
+
 }

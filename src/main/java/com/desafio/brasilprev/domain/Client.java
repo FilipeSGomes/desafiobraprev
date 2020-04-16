@@ -1,22 +1,23 @@
 package com.desafio.brasilprev.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties
-public class Client implements Serializable, UserDetails{
+public class Client implements Serializable{
 
 	private static final long serialVersionUID = -4212727289884788728L;
 	@Id
@@ -32,6 +33,9 @@ public class Client implements Serializable, UserDetails{
 	private String password;
 	
 	private String login;
+	
+	private String permissions;
+	
 	
 	public String getFirstName() {
 		return firstName;
@@ -57,64 +61,35 @@ public class Client implements Serializable, UserDetails{
 		this.mail = mail;
 	}
 
-	@Override
-	@JsonIgnore
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		Collection<GrantedAuthority> CollectionGranted = null;
-		GrantedAuthority granted = new GrantedAuthority() {
-			private static final long serialVersionUID = 1L;
-			@Override
-			public String getAuthority() {
-				return "ADMIN";
-			}
-		};
-		
-		CollectionGranted.add(granted);
-		return CollectionGranted;
-	}
-
-	@Override
 	public String getPassword() {
-		// TODO Auto-generated method stub
-		return this.password;
+		return password;
 	}
 
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return this.login;
+	public void setPassword(String password) {
+		this.password = new BCryptPasswordEncoder().encode(password);
 	}
 
-	@Override
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPermissions() {
+		return permissions;
+	}
+
+	public void setPermissions(String permissions) {
+		this.permissions = permissions;
+	}
 	@JsonIgnore
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
+	public List<String> getPermissionList(){
+		if(this.permissions.length()>0) {
+			return Arrays.asList(this.permissions.split(","));
+		}
+		return new ArrayList<>();
 	}
-
-	@Override
-	@JsonIgnore
-	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	@JsonIgnore
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
-	@JsonIgnore
-	public boolean isEnabled() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-	
-	
-	
 	
 }

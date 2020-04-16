@@ -12,44 +12,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.brasilprev.domain.Client;
-import com.desafio.brasilprev.services.ClientServices;
+import com.desafio.brasilprev.domain.Products;
+import com.desafio.brasilprev.services.ProductsServices;
 
 @RestController
 @RequestMapping("/rest/products")
 public class ProductsController {
 
 	@Autowired
-	private ClientServices services;
+	private ProductsServices services;
 
 	@PostMapping("/register")
-	public Client registerClient(@RequestBody final Client client) {
-		return services.registerClient(client);
+	public Products registerProducts(@RequestBody final Products Products) {
+		return services.registerProducts(Products);
 	}
 
 	@PutMapping("/change")
-	public Client changeClient(@RequestBody final Client client) {
-		return services.changeClient(client);
+	public Products changeProducts(@RequestBody final Products Products) {
+		return services.changeProducts(Products);
 	}
 
 	@DeleteMapping("/delete")
-	public void deleteClient(@RequestParam final String login) {
-		services.deleteClient(login);
+	public void deleteProducts(@RequestParam final String login) {
+		services.deleteProducts(login);
 	}
 
 	@GetMapping
-	public Iterable<Client> loadAllClient() {
-		return services.loadAllClient();
-	}
-
-	@GetMapping("/firstName")
-	public List<Client> loadClient(@RequestParam String firstName) {
-		return services.loadClient(firstName);
+	public Iterable<Products> loadAllProducts() {
+		return services.loadAllProducts();
 	}
 
 
-	@GetMapping("/login")
-	public Client loadClientByLogin(@RequestParam String login) {
-		return services.loadClientByLogin(login);
-	}
 }
