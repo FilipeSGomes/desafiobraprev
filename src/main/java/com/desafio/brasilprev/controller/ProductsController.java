@@ -1,7 +1,5 @@
 package com.desafio.brasilprev.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +20,17 @@ public class ProductsController {
 	@Autowired
 	private ProductsServices services;
 
-	@PostMapping("/register")
+	@PostMapping
 	public Products registerProducts(@RequestBody final Products Products) {
 		return services.registerProducts(Products);
 	}
 
-	@PutMapping("/change")
+	@PutMapping
 	public Products changeProducts(@RequestBody final Products Products) {
 		return services.changeProducts(Products);
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping
 	public void deleteProducts(@RequestParam final String login) {
 		services.deleteProducts(login);
 	}

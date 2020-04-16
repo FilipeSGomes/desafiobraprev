@@ -1,7 +1,5 @@
 package com.desafio.brasilprev.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +20,17 @@ public class ClientController {
 	@Autowired
 	private ClientServices services;
 
-	@PostMapping("/register")
+	@PostMapping("/")
 	public Client registerClient(@RequestBody final Client client) {
 		return services.registerClient(client);
 	}
 
-	@PutMapping("/change")
+	@PutMapping("/")
 	public Client changeClient(@RequestBody final Client client) {
 		return services.changeClient(client);
 	}
 
-	@DeleteMapping("/delete")
+	@DeleteMapping("/")
 	public void deleteClient(@RequestParam final String login) {
 		services.deleteClient(login);
 	}
@@ -42,13 +40,7 @@ public class ClientController {
 		return services.loadAllClient();
 	}
 
-	@GetMapping("/firstName")
-	public List<Client> loadClient(@RequestParam String firstName) {
-		return services.loadClient(firstName);
-	}
-
-
-	@GetMapping("/login")
+	@GetMapping("/")
 	public Client loadClientByLogin(@RequestParam String login) {
 		return services.loadClientByLogin(login);
 	}
