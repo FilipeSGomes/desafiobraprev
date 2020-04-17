@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.desafio.brasilprev.domain.Client;
 
-public interface ClientServices {
+public interface ClientServices extends CrudService<Client, Long>{
 
 	public Client changeClient(Client client);
 	

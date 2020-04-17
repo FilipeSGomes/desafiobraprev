@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.validator.internal.engine.messageinterpolation.parser.MessageDescriptorFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import com.desafio.brasilprev.domain.Client;
@@ -11,11 +12,16 @@ import com.desafio.brasilprev.repository.ClientRepository;
 import com.desafio.brasilprev.services.ClientServices;
 
 @Service
-public class ClientServicesImpl implements ClientServices {
+public class ClientServicesImpl extends CrudServicesImpl<Client, Long> implements ClientServices {
 
 	@Autowired
 	private ClientRepository repository;
-
+	
+	@Override
+	protected JpaRepository<Client, Long> getData() {
+		return repository;
+	}
+	
 	@Override
 	public Client changeClient(Client client) {
 		if (client == null || client.getLogin().isEmpty())

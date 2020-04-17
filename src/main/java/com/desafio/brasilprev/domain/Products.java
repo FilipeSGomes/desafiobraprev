@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Products implements Serializable {
@@ -16,11 +17,9 @@ public class Products implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	@NotNull(message = "Product Name is Null")
 	private String nameProduct;
-
 	private float price;
-
 	private int amount;
 
 	@ManyToOne
@@ -58,4 +57,12 @@ public class Products implements Serializable {
 		this.amount = amount;
 	}
 
+	public Categories getCategory() {
+		return category;
+	}
+
+	public void setCategory(Categories category) {
+		this.category = category;
+	}
+	
 }
