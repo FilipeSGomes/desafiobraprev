@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
         ApiInfo apiInfo = new ApiInfo(
                 "Desafio B.P.",
-                "Desafio tecnico de desenvolvimento API REST para simular loja virtual/n"
+                "Desafio tecnico de desenvolvimento API REST para simular loja virtual\n"
                 + "Desenvolvido EndPoints para cadastro de Registros",
                 "1.0",
                 "Terms of Service",

@@ -12,13 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.brasilprev.domain.Client;
 import com.desafio.brasilprev.services.ClientServices;
+import com.desafio.brasilprev.services.CrudService;
 
 @RestController
 @RequestMapping("/rest/client")
-public class ClientController {
+public class ClientController extends CrudController<Client, Long> {
 
 	@Autowired
 	private ClientServices services;
+
+	@Override
+	protected CrudService<Client, Long> getService() {
+		return services;
+	}
 
 	@PostMapping("/")
 	public Client registerClient(@RequestBody final Client client) {
