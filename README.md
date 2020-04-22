@@ -1,6 +1,7 @@
 # Getting Started
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww1.brasilprev.com.br%2F&psig=AOvVaw2jr6bcXJjUjDuzSavZRIPo&ust=1587482086029000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIing-Gl9-gCFQAAAAAdAAAAABAD">	
+![download](https://user-images.githubusercontent.com/47043493/79770728-2c073880-8304-11ea-9b2e-05d00301fa37.png)
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
